@@ -1,10 +1,7 @@
 def part_one():
-    file = open("input.txt", "r")
-    all_text = file.read()
-    lines = all_text.split("\n")
+    lines = read_file()
 
     fattest_elf = [0, 0]
-
     current_elf = [0, 0]
 
     for line in lines:
@@ -21,14 +18,11 @@ def part_one():
     print(f"1. The fattest elf is #{ fattest_elf[0] } at { fattest_elf[1] } calories")
 
 def part_two():
-    file = open("input.txt", "r")
-    all_text = file.read()
-    lines = all_text.split("\n")
+    lines = read_file()
 
     fattest_elves = [
         [0, 0]
     ]
-
     current_elf = [0, 0]
 
     for line in lines:
@@ -50,6 +44,13 @@ def part_two():
     fattest_elves_calories = sum(list(map(lambda elf: elf[1], fattest_elves)))
 
     print(f"2. The fattest elves are #{ fattest_elf_indices } at { fattest_elves_calories } combined calories")
+
+def read_file():
+    file = open("input.txt", "r")
+    all_text = file.read()
+    lines = all_text.split("\n")
+
+    return lines
 
 if __name__ == "__main__":
     part_one()
